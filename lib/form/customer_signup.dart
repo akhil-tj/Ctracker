@@ -167,7 +167,7 @@ class _SignupFormContentsState extends State<SignupFormContents> {
               // ignore: deprecated_member_use
               child: FlatButton(
                 onPressed: () {
-                  //Navigator.pushNamed(context, 'customer_signup');
+                  Navigator.pushNamed(context, 'customer_home_screen');
                 },
                 color: Color(0xff754EE4),
                 textColor: Colors.white,
@@ -197,15 +197,20 @@ class _SignupFormContentsState extends State<SignupFormContents> {
                   ),
                 ),
                 SizedBox(width: 4),
-                Text(
-                  'Login here.',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    color: Color(0xff754EE4),
-                    fontFamily: 'Montserrat',
-                    fontSize: 19,
-                    fontWeight: FontWeight.w500,
-                    letterSpacing: -0.5,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'customer_login');
+                  },
+                  child: Text(
+                    'Login here.',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      color: Color(0xff754EE4),
+                      fontFamily: 'Montserrat',
+                      fontSize: 19,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: -0.5,
+                    ),
                   ),
                 ),
               ],

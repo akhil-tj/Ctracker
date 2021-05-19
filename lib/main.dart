@@ -1,3 +1,5 @@
+import 'package:ctracker/Home/customer_home.dart';
+import 'package:ctracker/form/customer_login.dart';
 import 'package:ctracker/form/customer_signup.dart';
 import 'package:ctracker/model/model.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +19,8 @@ class MyApp extends StatelessWidget {
         'onboard': (context) => OnBoard(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         'customer_signup': (context) => SignupForm(),
+        'customer_home_screen': (context) => CustomerHome(),
+        'customer_login': (context) => CustomerLoginForm(),
       },
       home: OnBoard(),
     );
