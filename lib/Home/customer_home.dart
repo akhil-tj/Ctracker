@@ -1,12 +1,14 @@
 import 'package:ctracker/model/customer_home_list_tile.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomerHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('Pressed Floating Button');
+        },
         backgroundColor: Color(0xff754EE4),
         child: Icon(Icons.qr_code),
       ),
@@ -27,6 +29,7 @@ class CustomerHome extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class CustomerHomeBody extends StatelessWidget {
   List<CustomerHomeListTile> footPrintDetails = [
     CustomerHomeListTile(

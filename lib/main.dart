@@ -1,4 +1,5 @@
 import 'package:ctracker/Home/customer_home.dart';
+import 'package:ctracker/Home/shop_owner_home.dart';
 import 'package:ctracker/form/customer_login.dart';
 import 'package:ctracker/form/customer_signup.dart';
 import 'package:ctracker/model/model.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         'customer_signup': (context) => SignupForm(),
         'customer_home_screen': (context) => CustomerHome(),
         'customer_login': (context) => CustomerLoginForm(),
+        'shop_owner_home_screen': (context) => ShopOwnerHome(),
       },
       home: OnBoard(),
     );
@@ -131,7 +133,7 @@ class _HomeState extends State<Home> {
               // ignore: deprecated_member_use
               child: FlatButton(
                 onPressed: () {
-                  print('Button 2');
+                  Navigator.pushNamed(context, 'shop_owner_home_screen');
                 },
                 color: Colors.white,
                 textColor: Color(0xff754EE4),
