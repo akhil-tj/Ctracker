@@ -1,5 +1,7 @@
+import 'package:ctracker/style/text_style.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomerHomeListTile extends StatelessWidget {
   String customerAvatar;
   String cusName;
@@ -14,7 +16,7 @@ class CustomerHomeListTile extends StatelessWidget {
       child: ListTile(
         //tileColor: Colors.grey,
         leading: CircleAvatar(
-          backgroundColor: Color(0xff754EE4),
+          //backgroundColor: Color(0xff754EE4),
           radius: 26.0,
           backgroundImage: AssetImage(customerAvatar),
         ),
@@ -25,31 +27,20 @@ class CustomerHomeListTile extends StatelessWidget {
           children: [
             Text(
               cusName,
-              style: TextStyle(
-                  fontFamily: 'Montserrat',
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold),
+              style: subH,
             ),
             SizedBox(
               height: 4,
             ),
             Text(
               cusDate,
-              style: TextStyle(
-                fontFamily: 'Montserrat',
-                fontSize: 13,
-                color: Colors.black38,
-              ),
+              style: smallLabel,
             ),
           ],
         ),
         trailing: Text(
           cusTime,
-          style: TextStyle(
-            fontFamily: 'Montserrat',
-            color: Colors.black38,
-            fontSize: 13,
-          ),
+          style: smallLabel,
         ),
       ),
     );

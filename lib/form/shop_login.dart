@@ -3,7 +3,7 @@ import 'package:ctracker/style/color.dart';
 import 'package:ctracker/style/text_style.dart';
 import 'package:flutter/material.dart';
 
-class CustomerLoginForm extends StatelessWidget {
+class ShopLoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,25 +15,24 @@ class CustomerLoginForm extends StatelessWidget {
           },
         ),
         title: Text(
-          'Login as Customer',
+          'Login as Shop Owner',
           style: h2,
         ),
         backgroundColor: vilot,
       ),
       body: SingleChildScrollView(
-        child: CustomerLoginFormContents(),
+        child: ShopLoginFormContents(),
       ),
     );
   }
 }
 
-class CustomerLoginFormContents extends StatefulWidget {
+class ShopLoginFormContents extends StatefulWidget {
   @override
-  _CustomerLoginFormContentsState createState() =>
-      _CustomerLoginFormContentsState();
+  _ShopLoginFormContentsState createState() => _ShopLoginFormContentsState();
 }
 
-class _CustomerLoginFormContentsState extends State<CustomerLoginFormContents> {
+class _ShopLoginFormContentsState extends State<ShopLoginFormContents> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -83,7 +82,7 @@ class _CustomerLoginFormContentsState extends State<CustomerLoginFormContents> {
               // ignore: deprecated_member_use
               child: FlatButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, 'customer_home_screen');
+                  Navigator.pushNamed(context, 'shop_owner_home_screen');
                 },
                 color: vilot,
                 textColor: Colors.white,
@@ -109,7 +108,7 @@ class _CustomerLoginFormContentsState extends State<CustomerLoginFormContents> {
                 SizedBox(width: 4),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, 'customer_signup');
+                    Navigator.pushNamed(context, 'shop_owner_signup');
                   },
                   child: Text(
                     'Create one',

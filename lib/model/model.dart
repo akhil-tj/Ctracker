@@ -37,7 +37,7 @@ List<SliderModel> getSlides() {
 
   sliderModel.setsvgAsset('assets/Frame 22.svg');
   sliderModel
-      .setHeading('Track your foot and conform your footprint, with c-tracker');
+      .setHeading('Track your foot and confirm your footprint, with c-tracker');
   sliderModel.setBody(
       'A customer can scan merchants QR code and confirm their footprint.');
   slides.add(sliderModel);

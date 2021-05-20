@@ -2,7 +2,7 @@ import 'package:ctracker/style/color.dart';
 import 'package:ctracker/style/text_style.dart';
 import 'package:flutter/material.dart';
 
-class SignupForm extends StatelessWidget {
+class ShopSignupForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +14,7 @@ class SignupForm extends StatelessWidget {
           },
         ),
         title: Text(
-          'Create Customer Account',
+          'Create Shop Account',
           style: h2,
         ),
         backgroundColor: vilot,
@@ -158,7 +158,7 @@ class _SignupFormContentsState extends State<SignupFormContents> {
               // ignore: deprecated_member_use
               child: FlatButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, 'customer_home_screen');
+                  Navigator.pushNamed(context, 'shop_owner_home_screen');
                 },
                 color: vilot,
                 textColor: Colors.white,
@@ -184,7 +184,7 @@ class _SignupFormContentsState extends State<SignupFormContents> {
                 SizedBox(width: 4),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, 'customer_login');
+                    Navigator.pushNamed(context, 'shop_owner_login');
                   },
                   child: Text(
                     'Login here.',

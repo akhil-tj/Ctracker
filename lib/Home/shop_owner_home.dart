@@ -1,3 +1,5 @@
+import 'package:ctracker/style/color.dart';
+import 'package:ctracker/style/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -20,7 +22,7 @@ class ShopOwnerHomeBody extends StatelessWidget {
         children: [
           ListTile(
             leading: CircleAvatar(
-              backgroundColor: Colors.white,
+              //backgroundColor: Colors.white,
               radius: 23.0,
               backgroundImage: AssetImage('assets/Ellipse 2.png'),
             ),
@@ -29,21 +31,14 @@ class ShopOwnerHomeBody extends StatelessWidget {
               children: [
                 Text(
                   'Premium Hypermarket',
-                  style: TextStyle(
-                    fontFamily: 'Montserrat',
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: subH,
                 ),
                 SizedBox(
                   height: 4,
                 ),
                 Text(
                   'premmarket@gmail.com',
-                  style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontSize: 15,
-                      color: Colors.black38),
+                  style: smallLabel,
                 ),
               ],
             ),
@@ -57,12 +52,9 @@ class ShopOwnerHomeBody extends StatelessWidget {
             height: 40,
           ),
           Text(
-            'Scan and conform your footprint. Your deatils will be entered to the visitors list.',
+            'Scan and confirm your footprint. Your deatils will be entered to the visitors list.',
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontFamily: 'Montserrat',
-              fontSize: 19,
-            ),
+            style: bodytxtstyle,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16),
@@ -76,14 +68,11 @@ class ShopOwnerHomeBody extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, 'customer_home_screen');
                 },
-                color: Color(0xff754EE4),
+                color: vilot,
                 textColor: Colors.white,
                 child: Text(
                   'Summery',
-                  style: TextStyle(
-                    fontFamily: 'Montserrat',
-                    fontSize: 18,
-                  ),
+                  style: button,
                 ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(6),
