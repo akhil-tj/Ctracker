@@ -1,18 +1,28 @@
+import 'package:ctracker/QR/qrCodeScanner.dart';
 import 'package:ctracker/form/shop_login.dart';
 import 'package:ctracker/form/shop_signup.dart';
-import 'package:ctracker/home/customer_home.dart';
-import 'package:ctracker/home/shop_owner_home.dart';
+import 'package:ctracker/Home/customer_home.dart';
+import 'package:ctracker/Home/shop_owner_home.dart';
 import 'package:ctracker/form/customer_login.dart';
 import 'package:ctracker/form/customer_signup.dart';
 import 'package:ctracker/model/model.dart';
 import 'package:ctracker/style/color.dart';
 import 'package:ctracker/style/text_style.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
+
+DatabaseReference usersRef =
+    FirebaseDatabase.instance.reference().child("users");
+DatabaseReference merchantRef =
+    FirebaseDatabase.instance.reference().child("merchantusers");
 
 class MyApp extends StatelessWidget {
   @override
@@ -27,8 +37,10 @@ class MyApp extends StatelessWidget {
         'shop_owner_home_screen': (context) => ShopOwnerHome(),
         'shop_owner_login': (context) => ShopLoginForm(),
         'shop_owner_signup': (context) => ShopSignupForm(),
+        'qr_code_scanner': (context) => QRCodeScanner(),
       },
       home: Home(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

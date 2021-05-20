@@ -1,7 +1,9 @@
 import 'package:ctracker/style/color.dart';
 import 'package:ctracker/style/text_style.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pretty_qr_code/pretty_qr_code.dart';
 
 class ShopOwnerHome extends StatelessWidget {
   @override
@@ -10,6 +12,15 @@ class ShopOwnerHome extends StatelessWidget {
       body: ShopOwnerHomeBody(),
     );
   }
+}
+
+FirebaseAuth auth = FirebaseAuth.instance;
+
+String printID() {
+  User user = auth.currentUser;
+  String id = user.uid;
+  String data = id;
+  return data;
 }
 
 class ShopOwnerHomeBody extends StatelessWidget {
@@ -47,7 +58,12 @@ class ShopOwnerHomeBody extends StatelessWidget {
             height: 40,
           ),
           //QR Code
-          SvgPicture.asset('assets/qrcode.svg'),
+          PrettyQr(
+              typeNumber: 3,
+              size: 200,
+              data: printID(),
+              errorCorrectLevel: QrErrorCorrectLevel.M,
+              roundEdges: true),
           SizedBox(
             height: 40,
           ),

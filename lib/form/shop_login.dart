@@ -1,7 +1,11 @@
 import 'package:ctracker/form/customer_signup.dart';
 import 'package:ctracker/style/color.dart';
 import 'package:ctracker/style/text_style.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+
+import '../main.dart';
 
 class ShopLoginForm extends StatelessWidget {
   @override
@@ -33,6 +37,9 @@ class ShopLoginFormContents extends StatefulWidget {
 }
 
 class _ShopLoginFormContentsState extends State<ShopLoginFormContents> {
+  TextEditingController emailTextEditingController = TextEditingController();
+  TextEditingController passwordTextEditingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -52,11 +59,13 @@ class _ShopLoginFormContentsState extends State<ShopLoginFormContents> {
             height: 8,
           ),
           TextFieldContainer(
+            controller: emailTextEditingController,
             label: 'Email',
             type: TextInputType.emailAddress,
             pass: false,
           ),
           TextFieldContainer(
+            controller: passwordTextEditingController,
             label: 'Password',
             type: TextInputType.text,
             pass: true,
@@ -82,7 +91,13 @@ class _ShopLoginFormContentsState extends State<ShopLoginFormContents> {
               // ignore: deprecated_member_use
               child: FlatButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, 'shop_owner_home_screen');
+                  if (!emailTextEditingController.text.contains("@")) {
+                    displayToastMessage("Email address is not valid", context);
+                  } else if (passwordTextEditingController.text.isEmpty) {
+                    displayToastMessage("Password is mandatory.", context);
+                  } else {
+                    loginAndAuthenticateUser(context);
+                  }
                 },
                 color: vilot,
                 textColor: Colors.white,
@@ -128,5 +143,35 @@ class _ShopLoginFormContentsState extends State<ShopLoginFormContents> {
         ],
       ),
     );
+  }
+
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+
+  void loginAndAuthenticateUser(BuildContext context) async {
+    final User firebaseUser = (await _firebaseAuth
+            .signInWithEmailAndPassword(
+                email: emailTextEditingController.text,
+                password: passwordTextEditingController.text)
+            .catchError((errMsg) {
+      displayToastMessage("Error: " + errMsg.toString(), context);
+    }))
+        .user;
+
+    if (firebaseUser != null) {
+      merchantRef.child(firebaseUser.uid).once().then((DataSnapshot snap) {
+        if (snap.value != null) {
+          Navigator.pushNamedAndRemoveUntil(
+              context, 'shop_owner_home_screen', (route) => false);
+          displayToastMessage("you are logged-in now.", context);
+        } else {
+          _firebaseAuth.signOut();
+          displayToastMessage(
+              "No record exists for this user. Please create new account.",
+              context);
+        }
+      });
+    } else {
+      displayToastMessage("Error Occured, can not", context);
+    }
   }
 }

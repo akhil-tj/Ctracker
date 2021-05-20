@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "471426238076",
+    "firebase_url": "https://c-tracker-2021-default-rtdb.firebaseio.com",
+    "project_id": "c-tracker-2021",
+    "storage_bucket": "c-tracker-2021.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471426238076:android:03e5f4985c8eaa8b276bf9",
+        "android_client_info": {
+          "package_name": "com.copycat.ctracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "471426238076-73ag7bbbc4i3auseqhhdojvfgt46gs34.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbk8pWTBmy2cdJ3ORp_h9ecyL_PSeEN48"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "471426238076-73ag7bbbc4i3auseqhhdojvfgt46gs34.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

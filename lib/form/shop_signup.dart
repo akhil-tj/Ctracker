@@ -1,6 +1,10 @@
 import 'package:ctracker/style/color.dart';
 import 'package:ctracker/style/text_style.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
+import '../main.dart';
 
 class ShopSignupForm extends StatelessWidget {
   @override
@@ -32,6 +36,12 @@ class SignupFormContents extends StatefulWidget {
 }
 
 class _SignupFormContentsState extends State<SignupFormContents> {
+  TextEditingController nameTextEditingController = TextEditingController();
+  TextEditingController emailTextEditingController = TextEditingController();
+  TextEditingController shopnameTextEditingController = TextEditingController();
+  TextEditingController phoneTextEditingController = TextEditingController();
+  TextEditingController passwordTextEditingController = TextEditingController();
+
   String onOff = 'No';
   @override
   Widget build(BuildContext context) {
@@ -52,30 +62,107 @@ class _SignupFormContentsState extends State<SignupFormContents> {
             height: 8,
           ),
           TextFieldContainer(
+            controller: nameTextEditingController,
             label: 'Full Name',
             type: TextInputType.name,
             pass: false,
           ),
           TextFieldContainer(
+            controller: emailTextEditingController,
             label: 'Email',
             type: TextInputType.emailAddress,
             pass: false,
           ),
           TextFieldContainer(
-            label: 'Pincode',
-            type: TextInputType.number,
+            controller: shopnameTextEditingController,
+            label: 'Shop Name',
+            type: TextInputType.text,
             pass: false,
           ),
           TextFieldContainer(
+            controller: phoneTextEditingController,
+            label: 'Phone Number',
+            type: TextInputType.phone,
+            pass: false,
+          ),
+          TextFieldContainer(
+            controller: passwordTextEditingController,
             label: 'Password',
             type: TextInputType.text,
             pass: true,
           ),
-          TextFieldContainer(
-            label: 'Confirm Password',
-            type: TextInputType.text,
-            pass: true,
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(vertical: 8),
+          //   child: ConstrainedBox(
+          //     constraints: const BoxConstraints(
+          //       minWidth: double.infinity,
+          //       minHeight: 46,
+          //     ),
+          //     // ignore: deprecated_member_use
+          //     child: FlatButton(
+          //       onPressed: () {
+          //         print('Button 2');
+          //       },
+          //       color: Colors.white,
+          //       textColor: vilot,
+          //       child: Text(
+          //         'Upload Profile Image',
+          //         style: button,
+          //       ),
+          //       shape: RoundedRectangleBorder(
+          //         side: BorderSide(
+          //           color: vilot,
+          //           width: 2,
+          //         ),
+          //         borderRadius: BorderRadius.circular(6),
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          // Row(
+          //   mainAxisSize: MainAxisSize.max,
+          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //   children: [
+          //     Text(
+          //       'Vaccinated',
+          //       textAlign: TextAlign.left,
+          //       style: bodytxtstyle,
+          //     ),
+          //     Row(
+          //       mainAxisSize: MainAxisSize.min,
+          //       children: [
+          //         Radio(
+          //           activeColor: Color(0xff754EE4),
+          //           value: 'Yes',
+          //           groupValue: onOff,
+          //           onChanged: (val) {
+          //             onOff = val;
+          //             setState(() {});
+          //           },
+          //         ),
+          //         Text(
+          //           'Yes',
+          //           textAlign: TextAlign.left,
+          //           style: bodytxtstyle,
+          //         ),
+          //         Radio(
+          //           activeColor: vilot,
+          //           value: 'No',
+          //           groupValue: onOff,
+          //           onChanged: (val) {
+          //             onOff = val;
+          //             setState(() {});
+          //           },
+          //         ),
+          //         Text(
+          //           'No',
+          //           textAlign: TextAlign.left,
+          //           style: bodytxtstyle,
+          //         ),
+          //       ],
+          //     )
+          //   ],
+          // ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8),
             child: ConstrainedBox(
@@ -86,79 +173,21 @@ class _SignupFormContentsState extends State<SignupFormContents> {
               // ignore: deprecated_member_use
               child: FlatButton(
                 onPressed: () {
-                  print('Button 2');
-                },
-                color: Colors.white,
-                textColor: vilot,
-                child: Text(
-                  'Upload Profile Image',
-                  style: button,
-                ),
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(
-                    color: vilot,
-                    width: 2,
-                  ),
-                  borderRadius: BorderRadius.circular(6),
-                ),
-              ),
-            ),
-          ),
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Vaccinated',
-                textAlign: TextAlign.left,
-                style: bodytxtstyle,
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Radio(
-                    activeColor: Color(0xff754EE4),
-                    value: 'Yes',
-                    groupValue: onOff,
-                    onChanged: (val) {
-                      onOff = val;
-                      setState(() {});
-                    },
-                  ),
-                  Text(
-                    'Yes',
-                    textAlign: TextAlign.left,
-                    style: bodytxtstyle,
-                  ),
-                  Radio(
-                    activeColor: vilot,
-                    value: 'No',
-                    groupValue: onOff,
-                    onChanged: (val) {
-                      onOff = val;
-                      setState(() {});
-                    },
-                  ),
-                  Text(
-                    'No',
-                    textAlign: TextAlign.left,
-                    style: bodytxtstyle,
-                  ),
-                ],
-              )
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(
-                minWidth: double.infinity,
-                minHeight: 46,
-              ),
-              // ignore: deprecated_member_use
-              child: FlatButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, 'shop_owner_home_screen');
+                  if (nameTextEditingController.text.length < 3) {
+                    displayToastMessage(
+                        "name must be atleast 3 character", context);
+                  } else if (!emailTextEditingController.text.contains("@")) {
+                    displayToastMessage("Email address is not valid", context);
+                  } else if (shopnameTextEditingController.text.isEmpty) {
+                    displayToastMessage("Shop Name is mandatory", context);
+                  } else if (passwordTextEditingController.text.length < 6) {
+                    displayToastMessage(
+                        "Password must be atleast 6 characters.", context);
+                  } else if (phoneTextEditingController.text.isEmpty) {
+                    displayToastMessage("Phone Number is mandatory", context);
+                  } else {
+                    registerNewUser(context);
+                  }
                 },
                 color: vilot,
                 textColor: Colors.white,
@@ -205,6 +234,33 @@ class _SignupFormContentsState extends State<SignupFormContents> {
       ),
     );
   }
+
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  void registerNewUser(BuildContext context) async {
+    final User firebaseUser = (await _firebaseAuth
+            .createUserWithEmailAndPassword(
+                email: emailTextEditingController.text,
+                password: passwordTextEditingController.text)
+            .catchError((errMsg) {
+      displayToastMessage("Error: " + errMsg.toString(), context);
+    }))
+        .user;
+    if (firebaseUser != null) {
+      Map userDataMap = {
+        "name": nameTextEditingController.text.trim(),
+        "email": emailTextEditingController.text.trim(),
+        "shopname": shopnameTextEditingController.text.trim(),
+        "phonenumber": phoneTextEditingController.text.trim(),
+      };
+      merchantRef.child(firebaseUser.uid).set(userDataMap);
+      displayToastMessage(
+          "Congratulations, your account has been created.", context);
+      Navigator.pushNamedAndRemoveUntil(
+          context, 'shop_owner_home_screen', (route) => false);
+    } else {
+      displayToastMessage("New user account has not been Created.", context);
+    }
+  }
 }
 
 // ignore: must_be_immutable
@@ -212,7 +268,8 @@ class TextFieldContainer extends StatelessWidget {
   String label;
   TextInputType type;
   bool pass;
-  TextFieldContainer({this.label, this.type, this.pass});
+  TextEditingController controller;
+  TextFieldContainer({this.label, this.type, this.pass, this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -227,6 +284,7 @@ class TextFieldContainer extends StatelessWidget {
           horizontal: 12,
         ),
         child: TextField(
+          controller: controller,
           obscureText: pass,
           keyboardType: type,
           style: labelBlack,
@@ -239,4 +297,8 @@ class TextFieldContainer extends StatelessWidget {
       ),
     );
   }
+}
+
+displayToastMessage(String message, BuildContext context) {
+  Fluttertoast.showToast(msg: message);
 }

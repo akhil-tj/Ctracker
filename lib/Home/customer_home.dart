@@ -10,7 +10,7 @@ class CustomerHome extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print('Pressed Floating Button');
+          Navigator.pushNamed(context, 'qr_code_scanner');
         },
         backgroundColor: vilot,
         child: Icon(Icons.qr_code),
