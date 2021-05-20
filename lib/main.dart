@@ -1,8 +1,12 @@
-import 'package:ctracker/Home/customer_home.dart';
-import 'package:ctracker/Home/shop_owner_home.dart';
+import 'package:ctracker/form/shop_login.dart';
+import 'package:ctracker/form/shop_signup.dart';
+import 'package:ctracker/home/customer_home.dart';
+import 'package:ctracker/home/shop_owner_home.dart';
 import 'package:ctracker/form/customer_login.dart';
 import 'package:ctracker/form/customer_signup.dart';
 import 'package:ctracker/model/model.dart';
+import 'package:ctracker/style/color.dart';
+import 'package:ctracker/style/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -16,23 +20,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Ctracker',
       routes: {
-        // When navigating to the "/" route, build the FirstScreen widget.
-        'onboard': (context) => OnBoard(),
-        // When navigating to the "/second" route, build the SecondScreen widget.
+        'onboard': (context) => Home(),
         'customer_signup': (context) => SignupForm(),
         'customer_home_screen': (context) => CustomerHome(),
         'customer_login': (context) => CustomerLoginForm(),
         'shop_owner_home_screen': (context) => ShopOwnerHome(),
+        'shop_owner_login': (context) => ShopLoginForm(),
+        'shop_owner_signup': (context) => ShopSignupForm(),
       },
-      home: OnBoard(),
+      home: Home(),
     );
-  }
-}
-
-class OnBoard extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Home();
   }
 }
 
@@ -48,6 +45,7 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     super.initState();
     slides = getSlides();
@@ -59,7 +57,7 @@ class _HomeState extends State<Home> {
       height: isCurrentPage ? 8.0 : 6.0,
       width: isCurrentPage ? 8.0 : 6.0,
       decoration: BoxDecoration(
-        color: isCurrentPage ? Color(0xff754EE4) : Colors.grey[300],
+        color: isCurrentPage ? vilot : greyShade,
         borderRadius: BorderRadius.circular(12),
       ),
     );
@@ -108,14 +106,11 @@ class _HomeState extends State<Home> {
                 onPressed: () {
                   Navigator.pushNamed(context, 'customer_signup');
                 },
-                color: Color(0xff754EE4),
+                color: vilot,
                 textColor: Colors.white,
                 child: Text(
                   'Customer',
-                  style: TextStyle(
-                    fontFamily: 'Montserrat',
-                    fontSize: 18,
-                  ),
+                  style: button,
                 ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(6),
@@ -133,20 +128,19 @@ class _HomeState extends State<Home> {
               // ignore: deprecated_member_use
               child: FlatButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, 'shop_owner_home_screen');
+                  Navigator.pushNamed(context, 'shop_owner_login');
                 },
                 color: Colors.white,
-                textColor: Color(0xff754EE4),
+                textColor: vilot,
                 child: Text(
                   'Shop Owner',
-                  style: TextStyle(
-                    fontFamily: 'Montserrat',
-                    fontSize: 18,
-                    //fontWeight: FontWeight.w700,
-                  ),
+                  style: button,
                 ),
                 shape: RoundedRectangleBorder(
-                  side: BorderSide(color: Color(0xff754EE4), width: 2),
+                  side: BorderSide(
+                    color: vilot,
+                    width: 2,
+                  ),
                   borderRadius: BorderRadius.circular(6),
                 ),
               ),
@@ -181,10 +175,7 @@ class SliderTile extends StatelessWidget {
             child: Text(
               heading,
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: 'Bebas Neue',
-                fontSize: 28,
-              ),
+              style: h1,
             ),
           ),
           SizedBox(
@@ -195,10 +186,7 @@ class SliderTile extends StatelessWidget {
             child: Text(
               body,
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: 'Montserrat',
-                fontSize: 19,
-              ),
+              style: bodytxtstyle,
             ),
           ),
           SizedBox(
