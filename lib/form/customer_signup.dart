@@ -1,8 +1,15 @@
+import 'dart:io';
+
+import 'package:ctracker/Home/shop_owner_home.dart';
+import 'package:ctracker/api/firebase_api.dart';
 import 'package:ctracker/style/color.dart';
 import 'package:ctracker/style/text_style.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:path/path.dart';
 
 import '../main.dart';
 
@@ -43,8 +50,11 @@ class _SignupFormContentsState extends State<SignupFormContents> {
   TextEditingController passwordTextEditingController = TextEditingController();
 
   String onOff = 'No';
+  UploadTask task;
+  File file;
   @override
   Widget build(BuildContext context) {
+    final fileName = file != null ? basename(file.path) : 'No File Selected';
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -91,79 +101,107 @@ class _SignupFormContentsState extends State<SignupFormContents> {
             type: TextInputType.text,
             pass: true,
           ),
-          // Padding(
-          //   padding: const EdgeInsets.symmetric(vertical: 8),
-          //   child: ConstrainedBox(
-          //     constraints: const BoxConstraints(
-          //       minWidth: double.infinity,
-          //       minHeight: 46,
-          //     ),
-          //     // ignore: deprecated_member_use
-          //     child: FlatButton(
-          //       onPressed: () {
-          //         print('Button 2');
-          //       },
-          //       color: Colors.white,
-          //       textColor: vilot,
-          //       child: Text(
-          //         'Upload Profile Image',
-          //         style: button,
-          //       ),
-          //       shape: RoundedRectangleBorder(
-          //         side: BorderSide(
-          //           color: vilot,
-          //           width: 2,
-          //         ),
-          //         borderRadius: BorderRadius.circular(6),
-          //       ),
-          //     ),
-          //   ),
-          // ),
-          // Row(
-          //   mainAxisSize: MainAxisSize.max,
-          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //   children: [
-          //     Text(
-          //       'Vaccinated',
-          //       textAlign: TextAlign.left,
-          //       style: bodytxtstyle,
-          //     ),
-          //     Row(
-          //       mainAxisSize: MainAxisSize.min,
-          //       children: [
-          //         Radio(
-          //           activeColor: Color(0xff754EE4),
-          //           value: 'Yes',
-          //           groupValue: onOff,
-          //           onChanged: (val) {
-          //             onOff = val;
-          //             setState(() {});
-          //           },
-          //         ),
-          //         Text(
-          //           'Yes',
-          //           textAlign: TextAlign.left,
-          //           style: bodytxtstyle,
-          //         ),
-          //         Radio(
-          //           activeColor: vilot,
-          //           value: 'No',
-          //           groupValue: onOff,
-          //           onChanged: (val) {
-          //             onOff = val;
-          //             setState(() {});
-          //           },
-          //         ),
-          //         Text(
-          //           'No',
-          //           textAlign: TextAlign.left,
-          //           style: bodytxtstyle,
-          //         ),
-          //       ],
-          //     )
-          //   ],
-          // ),
-
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(
+                minWidth: double.infinity,
+                minHeight: 46,
+              ),
+              // ignore: deprecated_member_use
+              child: FlatButton(
+                onPressed: selectFile,
+                color: Colors.white,
+                textColor: vilot,
+                child: Text(
+                  'Select Profile Image',
+                  style: button,
+                ),
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(
+                    color: vilot,
+                    width: 2,
+                  ),
+                  borderRadius: BorderRadius.circular(6),
+                ),
+              ),
+            ),
+          ),
+          Text(
+            fileName,
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(
+                minWidth: double.infinity,
+                minHeight: 46,
+              ),
+              // ignore: deprecated_member_use
+              child: FlatButton(
+                onPressed: uploadFile,
+                color: Colors.white,
+                textColor: vilot,
+                child: Text(
+                  'Upload Profile Image',
+                  style: button,
+                ),
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(
+                    color: vilot,
+                    width: 2,
+                  ),
+                  borderRadius: BorderRadius.circular(6),
+                ),
+              ),
+            ),
+          ),
+          task != null ? buildUploadStatus(task) : Container(),
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Vaccinated',
+                textAlign: TextAlign.left,
+                style: bodytxtstyle,
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Radio(
+                    activeColor: Color(0xff754EE4),
+                    value: 'Yes',
+                    groupValue: onOff,
+                    onChanged: (val) {
+                      onOff = val;
+                      setState(() {});
+                    },
+                  ),
+                  Text(
+                    'Yes',
+                    textAlign: TextAlign.left,
+                    style: bodytxtstyle,
+                  ),
+                  Radio(
+                    activeColor: vilot,
+                    value: 'No',
+                    groupValue: onOff,
+                    onChanged: (val) {
+                      onOff = val;
+                      setState(() {});
+                    },
+                  ),
+                  Text(
+                    'No',
+                    textAlign: TextAlign.left,
+                    style: bodytxtstyle,
+                  ),
+                ],
+              )
+            ],
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8),
             child: ConstrainedBox(
@@ -236,6 +274,53 @@ class _SignupFormContentsState extends State<SignupFormContents> {
     );
   }
 
+  Future selectFile() async {
+    final result = await FilePicker.platform.pickFiles(allowMultiple: false);
+
+    if (result == null) return;
+    final path = result.files.single.path;
+
+    setState(() => file = File(path));
+  }
+
+  Future uploadFile() async {
+    User user = auth.currentUser;
+    String id = user.uid;
+    String data = id;
+    if (file == null) return;
+
+    final fileName = data;
+    final destination = 'files/$fileName';
+
+    task = FirebaseApi.uploadFile(destination, file);
+    setState(() {});
+
+    if (task == null) return;
+
+    final snapshot = await task.whenComplete(() {});
+    final urlDownload = await snapshot.ref.getDownloadURL();
+
+    print('Download-Link: $urlDownload');
+  }
+
+  Widget buildUploadStatus(UploadTask task) => StreamBuilder<TaskSnapshot>(
+        stream: task.snapshotEvents,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            final snap = snapshot.data;
+            final progress = snap.bytesTransferred / snap.totalBytes;
+            final percentage = (progress * 100).toStringAsFixed(2);
+
+            return Text(
+              '$percentage %',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            );
+          } else {
+            return Container();
+          }
+        },
+      );
+
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   void registerNewUser(BuildContext context) async {
     final User firebaseUser = (await _firebaseAuth
@@ -252,6 +337,7 @@ class _SignupFormContentsState extends State<SignupFormContents> {
         "email": emailTextEditingController.text.trim(),
         "pincode": pincodeTextEditingController.text.trim(),
         "phonenumber": phoneTextEditingController.text.trim(),
+        "Vaccinated": onOff.trim(),
       };
       usersRef.child(firebaseUser.uid).set(userDataMap);
       displayToastMessage(

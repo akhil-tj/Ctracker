@@ -89,11 +89,13 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
       String data1 = dataSnapShot.value["name"];
       String data2 = dataSnapShot.value["phonenumber"];
       String data3 = dataSnapShot.value["pincode"];
+      String data4 = dataSnapShot.value["Vaccinated"];
 
       Map userDataMap = {
         "name": data1.trim(),
         "phonenumber": data2.trim(),
-        "pincode": data3.trim()
+        "pincode": data3.trim(),
+        "Vaccinated": data4.trim()
       };
       usersprofileRef.child(uid).set(userDataMap);
     });
