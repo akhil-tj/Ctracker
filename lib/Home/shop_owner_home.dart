@@ -5,6 +5,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';
+import 'package:ctracker/data/data.dart';
 
 class ShopOwnerHome extends StatelessWidget {
   @override
@@ -24,20 +25,15 @@ String printID() {
   return data;
 }
 
-// String MerchantProfile() {
-//   FirebaseAuth auth = FirebaseAuth.instance;
-//   final User user = auth.currentUser;
-//   final uid = user.uid;
-//   DatabaseReference merchantsprofileRef =
-//       FirebaseDatabase.instance.reference().child(uid);
+Future MerchantProfile() {
+  FirebaseAuth auth = FirebaseAuth.instance;
+  final User user = auth.currentUser;
+  final uid = user.uid;
+  DatabaseReference merchantsprofileRef =
+      FirebaseDatabase.instance.reference().child(uid);
 
-//   merchantsprofileRef.once().then((DataSnapshot dataSnapShot) {
-//     String data1 = dataSnapShot.value["name"];
-//     String data2 = dataSnapShot.value["email"];
-//     print("my name is " + data1);
-//     return data1;
-//   });
-// }
+  return merchantsprofileRef.once();
+}
 
 class ShopOwnerHomeBody extends StatelessWidget {
   @override
@@ -47,29 +43,31 @@ class ShopOwnerHomeBody extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ListTile(
-            leading: CircleAvatar(
-              //backgroundColor: Colors.white,
-              radius: 23.0,
-              backgroundImage: AssetImage('assets/Ellipse 2.png'),
-            ),
-            title: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'jack sparrow',
-                  style: subH,
-                ),
-                SizedBox(
-                  height: 4,
-                ),
-                Text(
-                  'premmarket@gmail.com',
-                  style: smallLabel,
-                ),
-              ],
-            ),
-          ),
+          FutureBuilder<Object>(builder: (context, snapshot) {
+            return ListTile(
+              leading: CircleAvatar(
+                //backgroundColor: Colors.white,
+                radius: 23.0,
+                backgroundImage: AssetImage('assets/Ellipse 2.png'),
+              ),
+              title: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    snapshot.data['name'],
+                    style: subH,
+                  ),
+                  SizedBox(
+                    height: 4,
+                  ),
+                  Text(
+                    'premmarket@gmail.com',
+                    style: smallLabel,
+                  ),
+                ],
+              ),
+            );
+          }),
           SizedBox(
             height: 40,
           ),
