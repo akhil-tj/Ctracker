@@ -2,6 +2,7 @@ import 'package:ctracker/style/color.dart';
 import 'package:ctracker/style/text_style.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';
@@ -29,12 +30,14 @@ Future MerchantProfile() {
   final User user = auth.currentUser;
   final uid = user.uid;
   DatabaseReference merchantsprofileRef =
-      FirebaseDatabase.instance.reference().child(uid);
+      FirebaseDatabase.instance.reference().child("merchantusers").child(uid);
 
   return merchantsprofileRef.once();
 }
 
 class ShopOwnerHomeBody extends StatelessWidget {
+  // no need of the file extension, the name will do fine.
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -42,31 +45,35 @@ class ShopOwnerHomeBody extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          FutureBuilder<dynamic>(builder: (context, snapshot) {
-            return ListTile(
-              leading: CircleAvatar(
-                //backgroundColor: Colors.white,
-                radius: 23.0,
-                backgroundImage: AssetImage('assets/Ellipse 2.png'),
-              ),
-              title: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    snapshot.data['name'],
-                    style: subH,
+          FutureBuilder<dynamic>(
+              future: MerchantProfile(),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) {
+                  return CircularProgressIndicator();
+                }
+                return ListTile(
+                  leading: CircleAvatar(
+                    radius: 23.0,
+                    backgroundImage: AssetImage('assets/Ellipse 2.png'),
                   ),
-                  SizedBox(
-                    height: 4,
+                  title: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        snapshot.data.value['name'],
+                        style: subH,
+                      ),
+                      SizedBox(
+                        height: 4,
+                      ),
+                      Text(
+                        snapshot.data.value['email'],
+                        style: smallLabel,
+                      ),
+                    ],
                   ),
-                  Text(
-                    'premmarket@gmail.com',
-                    style: smallLabel,
-                  ),
-                ],
-              ),
-            );
-          }),
+                );
+              }),
           SizedBox(
             height: 40,
           ),
