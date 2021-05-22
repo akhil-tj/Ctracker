@@ -5,7 +5,6 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';
-import 'package:ctracker/data/data.dart';
 
 class ShopOwnerHome extends StatelessWidget {
   @override
@@ -43,7 +42,7 @@ class ShopOwnerHomeBody extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          FutureBuilder<Object>(builder: (context, snapshot) {
+          FutureBuilder<dynamic>(builder: (context, snapshot) {
             return ListTile(
               leading: CircleAvatar(
                 //backgroundColor: Colors.white,
