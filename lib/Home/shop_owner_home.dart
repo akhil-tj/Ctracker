@@ -24,19 +24,20 @@ String printID() {
   return data;
 }
 
-String MerchantProfile() {
-  FirebaseAuth auth = FirebaseAuth.instance;
-  final User user = auth.currentUser;
-  final uid = user.uid;
-  DatabaseReference merchantsprofileRef =
-      FirebaseDatabase.instance.reference().child(uid);
+// String MerchantProfile() {
+//   FirebaseAuth auth = FirebaseAuth.instance;
+//   final User user = auth.currentUser;
+//   final uid = user.uid;
+//   DatabaseReference merchantsprofileRef =
+//       FirebaseDatabase.instance.reference().child(uid);
 
-  merchantsprofileRef.once().then((DataSnapshot dataSnapShot) {
-    data1 = dataSnapShot.value["name"];
-    String data2 = dataSnapShot.value["email"];
-    print("my name is " + data1);
-  });
-}
+//   merchantsprofileRef.once().then((DataSnapshot dataSnapShot) {
+//     String data1 = dataSnapShot.value["name"];
+//     String data2 = dataSnapShot.value["email"];
+//     print("my name is " + data1);
+//     return data1;
+//   });
+// }
 
 class ShopOwnerHomeBody extends StatelessWidget {
   @override
@@ -56,7 +57,7 @@ class ShopOwnerHomeBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  data1,
+                  'jack sparrow',
                   style: subH,
                 ),
                 SizedBox(
@@ -97,7 +98,7 @@ class ShopOwnerHomeBody extends StatelessWidget {
               // ignore: deprecated_member_use
               child: FlatButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, 'customer_home_screen');
+                  print('home');
                 },
                 color: vilot,
                 textColor: Colors.white,
