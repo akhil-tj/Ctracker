@@ -43,6 +43,7 @@ class ShopOwnerHomeBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           FutureBuilder<dynamic>(
@@ -51,26 +52,33 @@ class ShopOwnerHomeBody extends StatelessWidget {
                 if (!snapshot.hasData) {
                   return CircularProgressIndicator();
                 }
-                return ListTile(
-                  leading: CircleAvatar(
-                    radius: 23.0,
-                    backgroundImage: AssetImage('assets/Ellipse 2.png'),
-                  ),
-                  title: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        snapshot.data.value['name'],
-                        style: subH,
+                return Container(
+                  width: 280,
+                  //decoration: BoxDecoration(color: Colors.white),
+                  child: ListTile(
+                    //tileColor: Color(0xff000000),
+                    leading: Container(
+                      child: CircleAvatar(
+                        radius: 25.0,
+                        backgroundImage: AssetImage('assets/Ellipse 2.png'),
                       ),
-                      SizedBox(
-                        height: 4,
-                      ),
-                      Text(
-                        snapshot.data.value['email'],
-                        style: smallLabel,
-                      ),
-                    ],
+                    ),
+                    title: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          snapshot.data.value['name'],
+                          style: subH,
+                        ),
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Text(
+                          snapshot.data.value['email'],
+                          style: smallLabel,
+                        ),
+                      ],
+                    ),
                   ),
                 );
               }),

@@ -63,9 +63,23 @@ class _ShopOwnerSummeryState extends State<ShopOwnerSummery> {
             ),
           ],
         ),
-        trailing: Text(
-          contact['time'],
-          style: smallLabel,
+        trailing: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              contact['time'],
+              style: smallLabel,
+            ),
+            SizedBox(
+              height: 4,
+            ),
+            Icon(
+              Icons.tour,
+              size: 22,
+              color: vilot,
+            ),
+          ],
         ),
       ),
     );
@@ -74,33 +88,20 @@ class _ShopOwnerSummeryState extends State<ShopOwnerSummery> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pushNamed(context, 'qr_code_scanner');
-        },
-        backgroundColor: vilot,
-        child: Icon(Icons.qr_code),
-      ),
       appBar: AppBar(
-        // leading: Container(
-        //   padding: EdgeInsets.all(13),
-        //   child: SvgPicture.asset(
-        //     'assets/menu.svg',
-        //     color: Colors.white,
-        //   ),
-        // ),
         backgroundColor: vilot,
         title: Text(
-          'My Footprints',
+          'Summery',
           style: h2,
         ),
         automaticallyImplyLeading: false,
         actions: [
-          CircleAvatar(
-            //backgroundColor: Colors.white,
-            radius: 18.0,
-            backgroundImage: AssetImage(
-              'assets/Ellipse 1.png',
+          Container(
+            margin: EdgeInsets.only(
+              right: 16,
+            ),
+            child: Icon(
+              Icons.filter_list,
             ),
           ),
         ],

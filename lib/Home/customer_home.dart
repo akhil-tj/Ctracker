@@ -64,9 +64,19 @@ class _CustomerHomeState extends State<CustomerHome> {
             ),
           ],
         ),
-        trailing: Text(
-          contact['time'],
-          style: smallLabel,
+        trailing: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 12),
+              child: Text(
+                contact['time'],
+                style: smallLabel,
+              ),
+            ),
+            Spacer(),
+          ],
         ),
       ),
     );
@@ -104,6 +114,9 @@ class _CustomerHomeState extends State<CustomerHome> {
               'assets/Ellipse 1.png',
             ),
           ),
+          SizedBox(
+            width: 16,
+          )
         ],
       ),
       body: Container(

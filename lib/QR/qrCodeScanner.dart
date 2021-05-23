@@ -29,15 +29,15 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
               onQRViewCreated: _onQRViewCreated,
             ),
           ),
-          Expanded(
-            flex: 1,
-            child: Center(
-              child: (result != null)
-                  ? Text(
-                      'Barcode Type: ${describeEnum(result.format)}   Data: ${MerchantProfile(result.code)}')
-                  : Text('Scan a code'),
-            ),
-          ),
+          // Expanded(
+          //   flex: 1,
+          //   child: Center(
+          //     child: (result != null)
+          //         ? Text(
+          //             'Barcode Type: ${describeEnum(result.format)}   Data: ${MerchantProfile(result.code)}')
+          //         : Text('Scan a code'),
+          //   ),
+          // ),
         ],
       ),
     );

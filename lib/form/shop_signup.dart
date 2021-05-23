@@ -54,7 +54,7 @@ class _SignupFormContentsState extends State<SignupFormContents> {
             height: 24,
           ),
           Text(
-            'Signup to track your foot and confirm your footprint, with c-tracker.',
+            'Signup to collect footprints. Follow covid protocols with c-tracker.',
             textAlign: TextAlign.left,
             style: textBtn,
           ),
