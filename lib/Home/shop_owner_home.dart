@@ -102,7 +102,7 @@ class ShopOwnerHomeBody extends StatelessWidget {
               // ignore: deprecated_member_use
               child: FlatButton(
                 onPressed: () {
-                  print('home');
+                  Navigator.pushNamed(context, 'shop_owner_summery');
                 },
                 color: vilot,
                 textColor: Colors.white,

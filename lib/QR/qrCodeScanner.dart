@@ -83,7 +83,10 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
         "shopname": data2.trim(),
         "phonenumber": data3.trim()
       };
-      merchantsprofileRef.child(yid).set(merchantDataMap);
+      merchantsprofileRef
+          .child("merchantusers")
+          .child(yid)
+          .set(merchantDataMap);
     });
     referenceuserData.once().then((DataSnapshot dataSnapShot) {
       String data1 = dataSnapShot.value["name"];
@@ -97,7 +100,7 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
         "pincode": data3.trim(),
         "Vaccinated": data4.trim()
       };
-      usersprofileRef.child(uid).set(userDataMap);
+      usersprofileRef.child("users").child(uid).set(userDataMap);
     });
   }
 }

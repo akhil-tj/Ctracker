@@ -68,30 +68,6 @@ class CustomerHomeBody extends StatelessWidget {
       cusDate: '15 May 2021',
       cusTime: '10:30am',
     ),
-    CustomerHomeListTile(
-      customerAvatar: 'assets/Ellipse 3.png',
-      cusName: 'Broklie Store',
-      cusDate: '15 May 2021',
-      cusTime: '10:15am',
-    ),
-    CustomerHomeListTile(
-      customerAvatar: 'assets/Ellipse 4.png',
-      cusName: 'Memu Restaurent',
-      cusDate: '12 May 2021',
-      cusTime: '1:38pm',
-    ),
-    CustomerHomeListTile(
-      customerAvatar: 'assets/Ellipse 5.png',
-      cusName: 'Internet Cafe',
-      cusDate: '29 April 2021',
-      cusTime: '11:10am',
-    ),
-    CustomerHomeListTile(
-      customerAvatar: 'assets/Ellipse 6.png',
-      cusName: 'Local Store',
-      cusDate: '25 April 2021',
-      cusTime: '4:30pm',
-    ),
   ];
 
   @override

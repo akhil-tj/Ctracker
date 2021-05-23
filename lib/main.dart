@@ -6,6 +6,7 @@ import 'package:ctracker/Home/shop_owner_home.dart';
 import 'package:ctracker/form/customer_login.dart';
 import 'package:ctracker/form/customer_signup.dart';
 import 'package:ctracker/model/model.dart';
+import 'package:ctracker/show_owner_summery.dart';
 import 'package:ctracker/style/color.dart';
 import 'package:ctracker/style/text_style.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
         'shop_owner_login': (context) => ShopLoginForm(),
         'shop_owner_signup': (context) => ShopSignupForm(),
         'qr_code_scanner': (context) => QRCodeScanner(),
+        'shop_owner_summery': (context) => ShopOwnerSummery(),
       },
       home: Home(),
       debugShowCheckedModeBanner: false,
