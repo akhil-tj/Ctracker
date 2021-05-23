@@ -3,6 +3,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:intl/intl.dart';
 
 class QRCodeScanner extends StatefulWidget {
   static const String idScreen = "QRCodeScanner";
@@ -72,16 +73,21 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
         FirebaseDatabase.instance.reference().child("merchantusers").child(id);
     DatabaseReference referenceuserData =
         FirebaseDatabase.instance.reference().child("users").child(uid);
+    DateTime now = new DateTime.now();
 
     referencemerchantData.once().then((DataSnapshot dataSnapShot) {
       String data1 = dataSnapShot.value["name"];
       String data2 = dataSnapShot.value["shopname"];
       String data3 = dataSnapShot.value["phonenumber"];
+      String data4 = DateFormat('dd MMMM yyyy').format(now);
+      String data5 = DateFormat('hh:mm a').format(now);
 
       Map merchantDataMap = {
         "name": data1.trim(),
         "shopname": data2.trim(),
-        "phonenumber": data3.trim()
+        "phonenumber": data3.trim(),
+        "date": data4.trim(),
+        "time": data5.trim()
       };
       merchantsprofileRef
           .child("merchantusers")
@@ -93,12 +99,15 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
       String data2 = dataSnapShot.value["phonenumber"];
       String data3 = dataSnapShot.value["pincode"];
       String data4 = dataSnapShot.value["Vaccinated"];
-
+      String data5 = DateFormat('dd MMMM yyyy').format(now);
+      String data6 = DateFormat('hh:mm a').format(now);
       Map userDataMap = {
         "name": data1.trim(),
         "phonenumber": data2.trim(),
         "pincode": data3.trim(),
-        "Vaccinated": data4.trim()
+        "Vaccinated": data4.trim(),
+        "date": data5.trim(),
+        "time": data6.trim()
       };
       usersprofileRef.child("users").child(uid).set(userDataMap);
     });
