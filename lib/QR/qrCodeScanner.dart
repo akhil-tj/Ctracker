@@ -1,3 +1,4 @@
+import 'package:ctracker/form/customer_signup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/foundation.dart';
@@ -33,8 +34,11 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
             flex: 1,
             child: Center(
               child: (result != null)
-                  ? Text('result is not ${MerchantProfile(result.code)}')
-                  : Text('Scan a code'),
+                  ? ({
+                      {MerchantProfile(result.code)},
+                      Navigator.pushNamed(context, 'customer_home_screen')
+                    })
+                  : displayToastMessage("Scan QR Code", context),
             ),
           ),
         ],
