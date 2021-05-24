@@ -118,7 +118,7 @@ class _HomeState extends State<Home> {
               // ignore: deprecated_member_use
               child: FlatButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, 'customer_signup');
+                  Navigator.pushNamed(context, 'customer_login');
                 },
                 color: vilot,
                 textColor: Colors.white,

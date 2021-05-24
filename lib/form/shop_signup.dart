@@ -131,33 +131,6 @@ class _SignupFormContentsState extends State<SignupFormContents> {
             fileName,
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
           ),
-          // Padding(
-          //   padding: const EdgeInsets.symmetric(vertical: 8),
-          //   child: ConstrainedBox(
-          //     constraints: const BoxConstraints(
-          //       minWidth: double.infinity,
-          //       minHeight: 46,
-          //     ),
-          //     // ignore: deprecated_member_use
-          //     child: FlatButton(
-          //       onPressed: uploadFile,
-          //       color: Colors.white,
-          //       textColor: vilot,
-          //       child: Text(
-          //         'Upload Profile Image',
-          //         style: button,
-          //       ),
-          //       shape: RoundedRectangleBorder(
-          //         side: BorderSide(
-          //           color: vilot,
-          //           width: 2,
-          //         ),
-          //         borderRadius: BorderRadius.circular(6),
-          //       ),
-          //     ),
-          //   ),
-          // ),
-          // task != null ? buildUploadStatus(task) : Container(),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8),
             child: ConstrainedBox(
