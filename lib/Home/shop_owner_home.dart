@@ -135,13 +135,12 @@ class ShopOwnerHomeBody extends StatelessWidget {
             height: 8,
           ),
           InkWell(
-            onTap: () {
-              removeValues() async {
-                SharedPreferences prefs = await SharedPreferences.getInstance();
+            onTap: () async {
+              final SharedPreferences sharedPreferences =
+                  await SharedPreferences.getInstance();
 
-                //Remove int
-                prefs.remove('value');
-              }
+              //Remove int
+              sharedPreferences.remove('value');
 
               FirebaseAuth.instance.signOut();
               Navigator.pushNamedAndRemoveUntil(

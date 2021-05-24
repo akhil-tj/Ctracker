@@ -17,25 +17,26 @@ class _LoadingSplashScreenState extends State<LoadingSplashScreen> {
   @override
   void initState() {
     getValidationData().whenComplete(() async {
-      Timer(
-          Duration(seconds: 5),
-          () => switch(finalValue) {
-  case 1:
- {
-   Navigator.pushNamed(context, 'customer_login');
-    break;
- } 
- 
+      Timer(Duration(seconds: 5), () {
+        switch (finalValue) {
+          case 1:
+            {
+              Navigator.pushNamed(context, 'customer_home_screen');
+              break;
+            }
 
-  case 2:
-  {
- Navigator.pushNamed(context, 'customer_login');
-  break;
-  }
- 
-
-}
-         ); 
+          case 2:
+            {
+              Navigator.pushNamed(context, 'shop_owner_home_screen');
+              break;
+            }
+          default:
+            {
+              Navigator.pushNamed(context, 'onboard');
+              break;
+            }
+        }
+      });
     });
     // (finalValue != 1)
     //           ? Navigator.pushNamed(context, 'customer_login')
@@ -50,7 +51,6 @@ class _LoadingSplashScreenState extends State<LoadingSplashScreen> {
     setState(() {
       finalValue = obtainedValue;
     });
-    print(finalValue);
   }
 
   @override

@@ -102,9 +102,6 @@ class _CustomerHomeState extends State<CustomerHome> {
     return FutureBuilder<dynamic>(
         future: UserProfile(),
         builder: (context, snapshot) {
-          if (!snapshot.hasData) {
-            return CircularProgressIndicator();
-          }
           return Scaffold(
             floatingActionButton: FloatingActionButton(
               onPressed: () {
@@ -129,14 +126,12 @@ class _CustomerHomeState extends State<CustomerHome> {
               automaticallyImplyLeading: false,
               actions: [
                 PopupMenuButton(
-                  onSelected: (choice) {
-                    removeValues() async {
-                      SharedPreferences prefs =
-                          await SharedPreferences.getInstance();
-                      print("my number is " + prefs.getInt('value').toString());
-                      //Remove int
-                      prefs.remove('value');
-                    }
+                  onSelected: (choice) async {
+                    final SharedPreferences sharedPreferences =
+                        await SharedPreferences.getInstance();
+
+                    //Remove int
+                    sharedPreferences.remove('value');
 
                     FirebaseAuth.instance.signOut();
                     Navigator.pushNamedAndRemoveUntil(

@@ -62,16 +62,6 @@ class _HomeState extends State<Home> {
   List<SliderModel> slides = new List<SliderModel>();
   int currentIndex = 0;
 
-  @override
-  Future getValidationData() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    var obtainedValue = prefs.getInt('value');
-    setState(() {
-      finalValue = obtainedValue;
-    });
-    print("my value is one or two" + finalValue.toString());
-  }
-
   void initState() {
     // ignore: todo
     // TODO: implement initState
