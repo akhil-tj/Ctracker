@@ -86,12 +86,12 @@ class _CustomerHomeState extends State<CustomerHome> {
     );
   }
 
-  Future MerchantProfile() {
+  Future UserProfile() {
     FirebaseAuth auth = FirebaseAuth.instance;
     final User user = auth.currentUser;
     final uid = user.uid;
     DatabaseReference merchantsprofileRef =
-        FirebaseDatabase.instance.reference().child("merchantusers").child(uid);
+        FirebaseDatabase.instance.reference().child("users").child(uid);
 
     return merchantsprofileRef.once();
   }
@@ -99,7 +99,7 @@ class _CustomerHomeState extends State<CustomerHome> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<dynamic>(
-        future: MerchantProfile(),
+        future: UserProfile(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return CircularProgressIndicator();
