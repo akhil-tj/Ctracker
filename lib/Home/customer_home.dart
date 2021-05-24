@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:ctracker/style/color.dart';
 import 'package:ctracker/style/text_style.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
@@ -27,6 +26,7 @@ class _CustomerHomeState extends State<CustomerHome> {
   Query _ref;
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     super.initState();
     _ref = FirebaseDatabase.instance
@@ -87,7 +87,7 @@ class _CustomerHomeState extends State<CustomerHome> {
     );
   }
 
-  Future UserProfile() {
+  Future userProfile() {
     FirebaseAuth auth = FirebaseAuth.instance;
     final User user = auth.currentUser;
     final uid = user.uid;
@@ -100,7 +100,7 @@ class _CustomerHomeState extends State<CustomerHome> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<dynamic>(
-        future: UserProfile(),
+        future: userProfile(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return CircularProgressIndicator();

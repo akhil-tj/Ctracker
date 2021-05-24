@@ -2,9 +2,7 @@ import 'package:ctracker/style/color.dart';
 import 'package:ctracker/style/text_style.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -26,7 +24,7 @@ String printID() {
   return data;
 }
 
-Future MerchantProfile() {
+Future merchantProfile() {
   FirebaseAuth auth = FirebaseAuth.instance;
   final User user = auth.currentUser;
   final uid = user.uid;
@@ -48,7 +46,7 @@ class ShopOwnerHomeBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           FutureBuilder<dynamic>(
-              future: MerchantProfile(),
+              future: merchantProfile(),
               builder: (context, snapshot) {
                 if (!snapshot.hasData) {
                   return CircularProgressIndicator();
@@ -144,7 +142,7 @@ class ShopOwnerHomeBody extends StatelessWidget {
 
               FirebaseAuth.instance.signOut();
               Navigator.pushNamedAndRemoveUntil(
-                  context, 'shop_owner_login', (route) => false);
+                  context, 'onboard', (route) => false);
             },
             child: Text(
               'Signout',

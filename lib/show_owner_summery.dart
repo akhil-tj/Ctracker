@@ -25,6 +25,7 @@ class _ShopOwnerSummeryState extends State<ShopOwnerSummery> {
   Query _ref;
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     super.initState();
     _ref = FirebaseDatabase.instance

@@ -1,7 +1,6 @@
 import 'package:ctracker/form/customer_signup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:intl/intl.dart';
@@ -35,7 +34,7 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
             child: Center(
               child: (result != null)
                   ? ({
-                      {MerchantProfile(result.code)},
+                      {merchantProfile(result.code)},
                       Navigator.pushNamed(context, 'customer_home_screen')
                     })
                   : displayToastMessage("Scan QR Code", context),
@@ -61,7 +60,7 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
     super.dispose();
   }
 
-  String MerchantProfile(context) {
+  void merchantProfile(context) {
     FirebaseAuth auth = FirebaseAuth.instance;
     final User user = auth.currentUser;
     final uid = user.uid;
