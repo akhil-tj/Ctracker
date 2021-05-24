@@ -106,8 +106,14 @@ class _ShopOwnerSummeryState extends State<ShopOwnerSummery> {
             margin: EdgeInsets.only(
               right: 16,
             ),
-            child: Icon(
-              Icons.filter_list,
+            child: FloatingActionButton(
+              onPressed: () {
+                Navigator.pushNamed(context, 'shop_owner_home_screen');
+              },
+              backgroundColor: vilot,
+              child: Icon(
+                Icons.filter_list,
+              ),
             ),
           ),
         ],
