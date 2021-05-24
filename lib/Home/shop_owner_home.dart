@@ -60,7 +60,11 @@ class ShopOwnerHomeBody extends StatelessWidget {
                     leading: Container(
                       child: CircleAvatar(
                         radius: 25.0,
-                        backgroundImage: AssetImage('assets/Ellipse 2.png'),
+                        backgroundImage: NetworkImage(
+                            'https://firebasestorage.googleapis.com/v0/b/c-tracker-2021.appspot.com/o/files%2F' +
+                                snapshot.data.value['email'] +
+                                '?alt=media&token=a2d4e1d0-202e-49c4-86b7-59df731559b3'),
+                        backgroundColor: Colors.transparent,
                       ),
                     ),
                     title: Column(

@@ -36,6 +36,7 @@ class _ShopOwnerSummeryState extends State<ShopOwnerSummery> {
   }
 
   Widget _buildContactItem({Map contact}) {
+    // if (contact["vacc"])
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: ListTile(
@@ -43,7 +44,11 @@ class _ShopOwnerSummeryState extends State<ShopOwnerSummery> {
         leading: CircleAvatar(
           //backgroundColor: Color(0xff754EE4),
           radius: 26.0,
-          backgroundImage: AssetImage('assets/Ellipse 2.png'),
+          backgroundImage: NetworkImage(
+              'https://firebasestorage.googleapis.com/v0/b/c-tracker-2021.appspot.com/o/files%2F' +
+                  contact['email'] +
+                  '?alt=media&token=a2d4e1d0-202e-49c4-86b7-59df731559b3'),
+          backgroundColor: Colors.transparent,
         ),
         title: Column(
           mainAxisSize: MainAxisSize.min,
@@ -77,7 +82,8 @@ class _ShopOwnerSummeryState extends State<ShopOwnerSummery> {
             Icon(
               Icons.tour,
               size: 22,
-              color: vilot,
+              color:
+                  (contact['Vaccinated'] == 'Yes') ? Colors.green : Colors.red,
             ),
           ],
         ),

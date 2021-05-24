@@ -29,15 +29,14 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
               onQRViewCreated: _onQRViewCreated,
             ),
           ),
-          // Expanded(
-          //   flex: 1,
-          //   child: Center(
-          //     child: (result != null)
-          //         ? Text(
-          //             'Barcode Type: ${describeEnum(result.format)}   Data: ${MerchantProfile(result.code)}')
-          //         : Text('Scan a code'),
-          //   ),
-          // ),
+          Expanded(
+            flex: 1,
+            child: Center(
+              child: (result != null)
+                  ? Text('Barcode scanned Not ${MerchantProfile(result.code)} ')
+                  : Text('Scan a code'),
+            ),
+          ),
         ],
       ),
     );
@@ -81,13 +80,15 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
       String data3 = dataSnapShot.value["phonenumber"];
       String data4 = DateFormat('dd MMMM yyyy').format(now);
       String data5 = DateFormat('hh:mm a').format(now);
+      String data6 = dataSnapShot.value["email"];
 
       Map merchantDataMap = {
         "name": data1.trim(),
         "shopname": data2.trim(),
         "phonenumber": data3.trim(),
         "date": data4.trim(),
-        "time": data5.trim()
+        "time": data5.trim(),
+        "email": data6.trim()
       };
       merchantsprofileRef
           .child("merchantusers")
@@ -101,13 +102,16 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
       String data4 = dataSnapShot.value["Vaccinated"];
       String data5 = DateFormat('dd MMMM yyyy').format(now);
       String data6 = DateFormat('hh:mm a').format(now);
+      String data7 = dataSnapShot.value["email"];
+
       Map userDataMap = {
         "name": data1.trim(),
         "phonenumber": data2.trim(),
         "pincode": data3.trim(),
         "Vaccinated": data4.trim(),
         "date": data5.trim(),
-        "time": data6.trim()
+        "time": data6.trim(),
+        "email": data7.trim()
       };
       usersprofileRef.child("users").child(uid).set(userDataMap);
     });

@@ -288,7 +288,7 @@ class _SignupFormContentsState extends State<SignupFormContents> {
     String data = id;
     if (file == null) return;
 
-    final fileName = data;
+    final fileName = emailTextEditingController.text;
     final destination = 'files/$fileName';
 
     task = FirebaseApi.uploadFile(destination, file);
