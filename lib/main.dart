@@ -9,6 +9,7 @@ import 'package:ctracker/model/model.dart';
 import 'package:ctracker/show_owner_summery.dart';
 import 'package:ctracker/style/color.dart';
 import 'package:ctracker/style/text_style.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -118,7 +119,9 @@ class _HomeState extends State<Home> {
               // ignore: deprecated_member_use
               child: FlatButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, 'customer_login');
+                  FirebaseAuth.instance.currentUser == null
+                      ? Navigator.pushNamed(context, 'customer_login')
+                      : Navigator.pushNamed(context, 'customer_home_screen');
                 },
                 color: vilot,
                 textColor: Colors.white,
@@ -142,7 +145,9 @@ class _HomeState extends State<Home> {
               // ignore: deprecated_member_use
               child: FlatButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, 'shop_owner_login');
+                  FirebaseAuth.instance.currentUser == null
+                      ? Navigator.pushNamed(context, 'shop_owner_login')
+                      : Navigator.pushNamed(context, 'shop_owner_home_screen');
                 },
                 color: Colors.white,
                 textColor: vilot,

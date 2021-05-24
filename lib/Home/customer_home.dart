@@ -129,7 +129,9 @@ class _CustomerHomeState extends State<CustomerHome> {
               actions: [
                 PopupMenuButton(
                   onSelected: (choice) {
-                    print('Signout Customer');
+                    FirebaseAuth.instance.signOut();
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, 'customer_login', (route) => false);
                   },
                   itemBuilder: (BuildContext context) => [
                     PopupMenuItem(

@@ -135,7 +135,9 @@ class ShopOwnerHomeBody extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              print('Signout Shop Owner');
+              FirebaseAuth.instance.signOut();
+              Navigator.pushNamedAndRemoveUntil(
+                  context, 'shop_owner_login', (route) => false);
             },
             child: Text(
               'Signout',
