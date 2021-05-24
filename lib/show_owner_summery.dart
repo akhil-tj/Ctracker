@@ -100,17 +100,16 @@ class _ShopOwnerSummeryState extends State<ShopOwnerSummery> {
           'Summery',
           style: h2,
         ),
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: true,
         actions: [
           Container(
             margin: EdgeInsets.only(
               right: 16,
             ),
-            child: FloatingActionButton(
-              onPressed: () {
-                Navigator.pushNamed(context, 'shop_owner_home_screen');
+            child: GestureDetector(
+              onTap: () {
+                print('Filter');
               },
-              backgroundColor: vilot,
               child: Icon(
                 Icons.filter_list,
               ),

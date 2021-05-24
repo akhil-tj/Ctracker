@@ -127,14 +127,30 @@ class _CustomerHomeState extends State<CustomerHome> {
               ),
               automaticallyImplyLeading: false,
               actions: [
-                CircleAvatar(
-                  //backgroundColor: Colors.white,
-                  radius: 18.0,
-                  backgroundImage: NetworkImage(
-                      'https://firebasestorage.googleapis.com/v0/b/c-tracker-2021.appspot.com/o/files%2F' +
-                          snapshot.data.value['email'] +
-                          '?alt=media&token=a2d4e1d0-202e-49c4-86b7-59df731559b3'),
-                  backgroundColor: Colors.transparent,
+                PopupMenuButton(
+                  onSelected: (choice) {
+                    print('Signout Customer');
+                  },
+                  itemBuilder: (BuildContext context) => [
+                    PopupMenuItem(
+                      child: Center(
+                        child: Text(
+                          "Signout",
+                          style: labelBlack,
+                        ),
+                      ),
+                      value: "signout",
+                    ),
+                  ],
+                  child: CircleAvatar(
+                    //backgroundColor: Colors.white,
+                    radius: 18.0,
+                    backgroundImage: NetworkImage(
+                        'https://firebasestorage.googleapis.com/v0/b/c-tracker-2021.appspot.com/o/files%2F' +
+                            snapshot.data.value['email'] +
+                            '?alt=media&token=a2d4e1d0-202e-49c4-86b7-59df731559b3'),
+                    backgroundColor: Colors.transparent,
+                  ),
                 ),
                 SizedBox(
                   width: 16,

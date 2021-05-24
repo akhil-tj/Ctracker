@@ -99,6 +99,7 @@ class _SignupFormContentsState extends State<SignupFormContents> {
             label: 'Password',
             type: TextInputType.text,
             pass: true,
+            eyeIcon: Icons.visibility,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8),
@@ -303,12 +304,22 @@ class _SignupFormContentsState extends State<SignupFormContents> {
 }
 
 // ignore: must_be_immutable
-class TextFieldContainer extends StatelessWidget {
+class TextFieldContainer extends StatefulWidget {
   String label;
   TextInputType type;
   bool pass;
   TextEditingController controller;
-  TextFieldContainer({this.label, this.type, this.pass, this.controller});
+  IconData eyeIcon;
+
+  TextFieldContainer(
+      {this.label, this.type, this.pass, this.controller, this.eyeIcon});
+
+  @override
+  _TextFieldContainerState createState() => _TextFieldContainerState();
+}
+
+class _TextFieldContainerState extends State<TextFieldContainer> {
+  bool x = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -321,19 +332,37 @@ class TextFieldContainer extends StatelessWidget {
         padding: const EdgeInsets.symmetric(
           horizontal: 12,
         ),
-        child: TextField(
-          controller: controller,
-          obscureText: pass,
-          keyboardType: type,
-          style: labelBlack,
-          decoration: InputDecoration(
-            hintStyle: labelGrey,
-            hintText: label,
-            border: InputBorder.none,
+        child: FocusScope(
+          child: Focus(
+            child: TextField(
+              cursorColor: vilot,
+              controller: widget.controller,
+              obscureText: widget.pass,
+              keyboardType: widget.type,
+              style: labelBlack,
+              decoration: InputDecoration(
+                suffixIcon: InkWell(
+                  onTap: _togglePassword,
+                  child: Icon(
+                    widget.eyeIcon,
+                    color: greyShade,
+                  ),
+                ),
+                hintStyle: labelGrey,
+                hintText: widget.label,
+                border: InputBorder.none,
+              ),
+            ),
           ),
         ),
       ),
     );
+  }
+
+  void _togglePassword() {
+    widget.pass = !widget.pass;
+    widget.eyeIcon = Icons.visibility_off;
+    setState(() {});
   }
 }
 

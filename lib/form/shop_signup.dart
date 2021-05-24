@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:ctracker/api/firebase_api.dart';
 import 'package:ctracker/Home/shop_owner_home.dart';
+import 'package:ctracker/form/customer_signup.dart';
 import 'package:ctracker/style/color.dart';
 import 'package:ctracker/style/text_style.dart';
 import 'package:file_picker/file_picker.dart';
@@ -100,6 +101,7 @@ class _SignupFormContentsState extends State<SignupFormContents> {
             label: 'Password',
             type: TextInputType.text,
             pass: true,
+            eyeIcon: Icons.visibility,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8),
@@ -258,42 +260,6 @@ class _SignupFormContentsState extends State<SignupFormContents> {
     } else {
       displayToastMessage("New user account has not been Created.", context);
     }
-  }
-}
-
-// ignore: must_be_immutable
-class TextFieldContainer extends StatelessWidget {
-  String label;
-  TextInputType type;
-  bool pass;
-  TextEditingController controller;
-  TextFieldContainer({this.label, this.type, this.pass, this.controller});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 8),
-      decoration: BoxDecoration(
-        color: textboxColor,
-        borderRadius: BorderRadius.circular(4.0),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 12,
-        ),
-        child: TextField(
-          controller: controller,
-          obscureText: pass,
-          keyboardType: type,
-          style: labelBlack,
-          decoration: InputDecoration(
-            hintStyle: labelGrey,
-            hintText: label,
-            border: InputBorder.none,
-          ),
-        ),
-      ),
-    );
   }
 }
 

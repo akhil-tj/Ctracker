@@ -70,6 +70,7 @@ class _CustomerLoginFormContentsState extends State<CustomerLoginFormContents> {
             label: 'Password',
             type: TextInputType.text,
             pass: true,
+            eyeIcon: Icons.visibility,
           ),
           SizedBox(
             height: 8,

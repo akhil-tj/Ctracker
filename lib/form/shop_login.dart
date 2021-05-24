@@ -69,6 +69,7 @@ class _ShopLoginFormContentsState extends State<ShopLoginFormContents> {
             label: 'Password',
             type: TextInputType.text,
             pass: true,
+            eyeIcon: Icons.visibility,
           ),
           SizedBox(
             height: 8,
