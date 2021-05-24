@@ -9,6 +9,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:path/path.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../main.dart';
 
@@ -20,7 +21,7 @@ class SignupForm extends StatelessWidget {
         leading: GestureDetector(
           child: Icon(Icons.west),
           onTap: () {
-            Navigator.pushNamed(context, 'onboard');
+            Navigator.pushNamed(context, 'customer_login');
           },
         ),
         title: Text(
@@ -293,6 +294,11 @@ class _SignupFormContentsState extends State<SignupFormContents> {
         "Vaccinated": onOff.trim(),
       };
       usersRef.child(firebaseUser.uid).set(userDataMap);
+
+      final SharedPreferences sharedPreferences =
+          await SharedPreferences.getInstance();
+      sharedPreferences.setInt('value', 1);
+
       displayToastMessage(
           "Congratulations, your account has been created.", context);
       Navigator.pushNamedAndRemoveUntil(

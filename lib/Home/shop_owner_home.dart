@@ -6,6 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ShopOwnerHome extends StatelessWidget {
   @override
@@ -135,6 +136,13 @@ class ShopOwnerHomeBody extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
+              removeValues() async {
+                SharedPreferences prefs = await SharedPreferences.getInstance();
+
+                //Remove int
+                prefs.remove('value');
+              }
+
               FirebaseAuth.instance.signOut();
               Navigator.pushNamedAndRemoveUntil(
                   context, 'shop_owner_login', (route) => false);

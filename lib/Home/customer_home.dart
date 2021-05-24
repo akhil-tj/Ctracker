@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CustomerHome extends StatefulWidget {
   CustomerHome({Key key}) : super(key: key);
@@ -129,6 +130,14 @@ class _CustomerHomeState extends State<CustomerHome> {
               actions: [
                 PopupMenuButton(
                   onSelected: (choice) {
+                    removeValues() async {
+                      SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
+                      print("my number is " + prefs.getInt('value').toString());
+                      //Remove int
+                      prefs.remove('value');
+                    }
+
                     FirebaseAuth.instance.signOut();
                     Navigator.pushNamedAndRemoveUntil(
                         context, 'customer_login', (route) => false);

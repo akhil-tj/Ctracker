@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:ctracker/api/firebase_api.dart';
-import 'package:ctracker/Home/shop_owner_home.dart';
 import 'package:ctracker/form/customer_signup.dart';
 import 'package:ctracker/style/color.dart';
 import 'package:ctracker/style/text_style.dart';
@@ -10,6 +9,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:path/path.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../main.dart';
 
@@ -21,7 +21,7 @@ class ShopSignupForm extends StatelessWidget {
         leading: GestureDetector(
           child: Icon(Icons.west),
           onTap: () {
-            Navigator.pushNamed(context, 'onboard');
+            Navigator.pushNamed(context, 'shop_owner_login');
           },
         ),
         title: Text(
@@ -216,9 +216,6 @@ class _SignupFormContentsState extends State<SignupFormContents> {
   }
 
   Future uploadFile() async {
-    User user = auth.currentUser;
-    String id = user.uid;
-    String data = id;
     if (file == null) return;
 
     final fileName = emailTextEditingController.text;
@@ -252,6 +249,11 @@ class _SignupFormContentsState extends State<SignupFormContents> {
         "shopname": shopnameTextEditingController.text.trim(),
         "phonenumber": phoneTextEditingController.text.trim(),
       };
+
+      final SharedPreferences sharedPreferences =
+          await SharedPreferences.getInstance();
+      sharedPreferences.setInt('value', 2);
+
       merchantRef.child(firebaseUser.uid).set(userDataMap);
       displayToastMessage(
           "Congratulations, your account has been created.", context);

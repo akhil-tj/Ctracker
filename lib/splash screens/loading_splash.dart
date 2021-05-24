@@ -1,7 +1,58 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class LoadingSplashScreen extends StatelessWidget {
+int finalValue;
+
+class LoadingSplashScreen extends StatefulWidget {
+  LoadingSplashScreen({Key key}) : super(key: key);
+
+  @override
+  _LoadingSplashScreenState createState() => _LoadingSplashScreenState();
+}
+
+class _LoadingSplashScreenState extends State<LoadingSplashScreen> {
+  @override
+  void initState() {
+    getValidationData().whenComplete(() async {
+      Timer(
+          Duration(seconds: 5),
+          () => switch(finalValue) {
+  case 1:
+ {
+   Navigator.pushNamed(context, 'customer_login');
+    break;
+ } 
+ 
+
+  case 2:
+  {
+ Navigator.pushNamed(context, 'customer_login');
+  break;
+  }
+ 
+
+}
+         ); 
+    });
+    // (finalValue != 1)
+    //           ? Navigator.pushNamed(context, 'customer_login')
+    //           : Navigator.pushNamed(context, 'customer_home_screen')
+    super.initState();
+  }
+
+  Future getValidationData() async {
+    final SharedPreferences sharedPreferences =
+        await SharedPreferences.getInstance();
+    var obtainedValue = sharedPreferences.getInt('value');
+    setState(() {
+      finalValue = obtainedValue;
+    });
+    print(finalValue);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -4,6 +4,7 @@ import 'package:ctracker/style/text_style.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../main.dart';
 
@@ -15,7 +16,7 @@ class ShopLoginForm extends StatelessWidget {
         leading: GestureDetector(
           child: Icon(Icons.west),
           onTap: () {
-            Navigator.pushNamed(context, 'customer_signup');
+            Navigator.pushNamed(context, 'onboard');
           },
         ),
         title: Text(
@@ -159,8 +160,15 @@ class _ShopLoginFormContentsState extends State<ShopLoginFormContents> {
         .user;
 
     if (firebaseUser != null) {
-      merchantRef.child(firebaseUser.uid).once().then((DataSnapshot snap) {
+      merchantRef
+          .child(firebaseUser.uid)
+          .once()
+          .then((DataSnapshot snap) async {
         if (snap.value != null) {
+          final SharedPreferences sharedPreferences =
+              await SharedPreferences.getInstance();
+          sharedPreferences.setInt('value', 2);
+
           Navigator.pushNamedAndRemoveUntil(
               context, 'shop_owner_home_screen', (route) => false);
           displayToastMessage("you are logged-in now.", context);

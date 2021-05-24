@@ -33,7 +33,7 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
             flex: 1,
             child: Center(
               child: (result != null)
-                  ? Text('Barcode scanned Not ${MerchantProfile(result.code)} ')
+                  ? Text('result is not ${MerchantProfile(result.code)}')
                   : Text('Scan a code'),
             ),
           ),

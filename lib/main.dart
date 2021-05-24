@@ -7,6 +7,7 @@ import 'package:ctracker/form/customer_login.dart';
 import 'package:ctracker/form/customer_signup.dart';
 import 'package:ctracker/model/model.dart';
 import 'package:ctracker/show_owner_summery.dart';
+import 'package:ctracker/splash%20screens/loading_splash.dart';
 import 'package:ctracker/style/color.dart';
 import 'package:ctracker/style/text_style.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -14,7 +15,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+int finalValue;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -41,8 +44,9 @@ class MyApp extends StatelessWidget {
         'shop_owner_signup': (context) => ShopSignupForm(),
         'qr_code_scanner': (context) => QRCodeScanner(),
         'shop_owner_summery': (context) => ShopOwnerSummery(),
+        'splash_screen': (context) => LoadingSplashScreen(),
       },
-      home: Home(),
+      home: LoadingSplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -59,6 +63,15 @@ class _HomeState extends State<Home> {
   int currentIndex = 0;
 
   @override
+  Future getValidationData() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    var obtainedValue = prefs.getInt('value');
+    setState(() {
+      finalValue = obtainedValue;
+    });
+    print("my value is one or two" + finalValue.toString());
+  }
+
   void initState() {
     // ignore: todo
     // TODO: implement initState
@@ -119,9 +132,12 @@ class _HomeState extends State<Home> {
               // ignore: deprecated_member_use
               child: FlatButton(
                 onPressed: () {
-                  FirebaseAuth.instance.currentUser == null
-                      ? Navigator.pushNamed(context, 'customer_login')
-                      : Navigator.pushNamed(context, 'customer_home_screen');
+                  Navigator.pushNamed(context, 'customer_login');
+                  // getValidationData().whenComplete(() async {
+                  //   (finalValue == 1)
+                  //       ? Navigator.pushNamed(context, 'customer_home_screen')
+                  //       : Navigator.pushNamed(context, 'customer_login');
+                  // });
                 },
                 color: vilot,
                 textColor: Colors.white,
@@ -145,9 +161,12 @@ class _HomeState extends State<Home> {
               // ignore: deprecated_member_use
               child: FlatButton(
                 onPressed: () {
-                  FirebaseAuth.instance.currentUser == null
-                      ? Navigator.pushNamed(context, 'shop_owner_login')
-                      : Navigator.pushNamed(context, 'shop_owner_home_screen');
+                  Navigator.pushNamed(context, 'shop_owner_login');
+                  // getValidationData().whenComplete(() async {
+                  //   (finalValue == 2)
+                  //       ? Navigator.pushNamed(context, 'shop_owner_summery')
+                  //       : Navigator.pushNamed(context, 'shop_owner_login');
+                  // });
                 },
                 color: Colors.white,
                 textColor: vilot,
