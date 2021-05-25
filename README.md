@@ -1,11 +1,11 @@
 ![alt text](https://trello-attachments.s3.amazonaws.com/542e9c6316504d5797afbfb9/542e9c6316504d5797afbfc1/39dee8d993841943b5723510ce663233/Frame_19.png)
-![alt text](https://github.com/sreemikil/testing/blob/4e1a10f23ffedd4a3e88e3fd9ceb724ff2e0c82d/Image%20assets/imageban.jpg)
+![alt text](https://github.com/itexpert2572000/Ctracker/blob/91a6a09e646eda69264b6611faa5278e0f03e1ab/readme_assets/imageban.jpg)
 
 
 # CTracker
 ## Introduction         
 
-<img align="right" src="https://github.com/sreemikil/testing/blob/eef58864b8fcd08570a34a6dc517b1ceadaea78d/Image%20assets/imgintro.png?1" />
+<img align="right" src="https://github.com/itexpert2572000/Ctracker/blob/91a6a09e646eda69264b6611faa5278e0f03e1ab/readme_assets/imgintro.png" />
 
 
 
@@ -38,7 +38,7 @@ exact solutions.
 
 <a name="members"></a>
 ## Team members
-![Akhil](https://github.com/sreemikil/testing/blob/b83fb4bd41068a26b6039f14dc6ab852e7299722/Image%20assets/tj.png) | ![Suvarnesh K M](https://github.com/sreemikil/testing/blob/main/Image%20assets/suvarneshkm.png) | ![Sreemikil T Manoharan](https://github.com/sreemikil/testing/blob/main/Image%20assets/sreemikil.png)
+![Akhil](https://github.com/itexpert2572000/Ctracker/blob/91a6a09e646eda69264b6611faa5278e0f03e1ab/readme_assets/tj.png) | ![Suvarnesh K M](https://github.com/itexpert2572000/Ctracker/blob/91a6a09e646eda69264b6611faa5278e0f03e1ab/readme_assets/suvarneshkm.png) | ![Sreemikil T Manoharan](https://github.com/itexpert2572000/Ctracker/blob/91a6a09e646eda69264b6611faa5278e0f03e1ab/readme_assets/sreemikil.png)
 ------------ | ------------- | ------------- 
 [@itexpert2572000](https://github.com/itexpert2572000) | [@Suvarnesh K M](https://github.com/SuvarneshKM) | [@Sreemikil T Manoharan](https://github.com/sreemikil)
 
@@ -73,13 +73,12 @@ Technologies which we are used in this project are:
 - As a customer, he can scan merchants QR code and confirm his footprint.
 - Also his previous visits will listed in the home screen.
 - As a merchant, he can generate QR code with shop details.
-- Also he cis able to see daily visitors details and summary.
+- Also he is able to see daily visitors details and summary.
 
 <a name="video"></a>
 ### Demo video of Project
 <a name="Librariesused"></a>
 ## Libraries used
-- Cupertino_icons
 - Flutter_svg
 - Firebase_core
 - Firebase_auth
@@ -104,7 +103,7 @@ From the command line:
 <br><br>
 <p align="center">
   Download the app now <br><br>
-  <a href="https://apps.apple.com/us/app/gittouch/id1452042346"><img src="https://github.com/sreemikil/testing/blob/aacb684613a7a405df32608837624056e92aaa65/Image%20assets/download.png" alt="Download on the App Store" height="48"></a>
+  <a href="https://apps.apple.com/us/app/gittouch/id1452042346"><img src="https://github.com/itexpert2572000/Ctracker/blob/91a6a09e646eda69264b6611faa5278e0f03e1ab/readme_assets/download.png" alt="Download on the App Store" height="48"></a>
 </p>
 
 <!--## Total Visitors
