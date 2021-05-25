@@ -101,7 +101,7 @@ From the command line:
  * Connect your Android device to your computer with a USB cable.
  * Enter cd [project].
  * Run flutter install.
-
+<br><br>
 <p align="center">
   Download the app now <br><br>
   <a href="https://apps.apple.com/us/app/gittouch/id1452042346"><img src="https://github.com/sreemikil/testing/blob/aacb684613a7a405df32608837624056e92aaa65/Image%20assets/download.png" alt="Download on the App Store" height="48"></a>
