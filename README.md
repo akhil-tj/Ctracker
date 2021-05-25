@@ -83,6 +83,13 @@ Technologies which we are used in this project are:
 - <a href="https://pub.dev/packages/lottie">Lottie</a>
 <a name="configure"></a>
 ## How to configure
+```
+1. Install Flutter
+2. Set up an editor(Android Studio/VS Code)
+3. Test drive
+4. Clone C-tracker
+5. Run
+```
 <a name="run"></a>
 ## How to run
 Follow these steps to install the APK on a connected Android device.
