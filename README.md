@@ -9,18 +9,10 @@
 
 
 
-Applozic brings real-time engagement with chat, video, and voice to your web,
-mobile, and conversational apps. We power emerging startups and established
-companies with the most scalable and powerful chat APIs, enabling application
-product teams to drive better user engagement, and reduce time-to-market.
+C-tracker is an android app that let's shopowners to collect footprints of their customers. Meanwhile the customer can easily scan the QR code and conform thair footprints. 
 
-Customers and developers from over 50+ countries use us and love us, from online
-marketplaces and eCommerce to on-demand services, to Education Tech, Health
-Tech, Gaming, Live-Streaming, and more.
+C-tracker was fully developed in flutter, an open-source UI software development kit created by Google. It is used to develop cross platform applications for Android, iOS, Linux, Mac, Windows, Google Fuchsia, and the web from a single codebase.
 
-Our feature-rich product includes robust client-side SDKs for iOS, Android, React
-Native, and Flutter. We also support popular server-side languages, a beautifully
-customizable UI kit, and flexible platform APIs.
 
 Chat, video, and audio-calling have become the new norm in the post-COVID era,
 and we're bridging the gap between businesses and customers by delivering those
