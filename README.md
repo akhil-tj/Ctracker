@@ -35,6 +35,7 @@ exact solutions.
 * [Libraries used](#Librariesused)
 * [How to configure](#configure)
 * [How to run](#run)
+* [Download now](#download)
 
 <a name="members"></a>
 ## Team members
@@ -101,6 +102,7 @@ From the command line:
  * Enter cd [project].
  * Run flutter install.
 <br><br>
+<a name="download"></a>
 <p align="center">
   Download the app now <br><br>
   <a href="https://apps.apple.com/us/app/gittouch/id1452042346"><img src="https://github.com/itexpert2572000/Ctracker/blob/91a6a09e646eda69264b6611faa5278e0f03e1ab/readme_assets/download.png" alt="Download on the App Store" height="48"></a>
