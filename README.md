@@ -101,12 +101,12 @@ From the command line:
  * Run flutter install.
 <a name="design"></a>
 ## Design file
-<a href="https://www.figma.com/file/5capyUZOnGpKiwROaBuoRF/bfh-Ctracker?node-id=0%3A1"><img src="https://github.com/itexpert2572000/Ctracker/blob/2ef021579d92728aa9604ad40bcddc27177c8ecf/readme_assets/designban.png"></a>
+<a href="https://www.figma.com/file/5capyUZOnGpKiwROaBuoRF/bfh-Ctracker?node-id=0%3A1"><img src="https://github.com/itexpert2572000/Ctracker/blob/983e9cfb2310e4523c44a055e63b9268d892b1c6/readme_assets/dsgnban.png"></a>
 <br><br>
 <a name="download"></a>
 <p align="center">
   Download the app now <br><br>
-  <a href="https://apps.apple.com/us/app/gittouch/id1452042346"><img src="https://github.com/itexpert2572000/Ctracker/blob/91a6a09e646eda69264b6611faa5278e0f03e1ab/readme_assets/download.png" alt="Download on the App Store" height="48"></a>
+  <a href="https://drive.google.com/file/d/1AKiJjP-qoJQP1FG9tdlceQLlRSXX3bH_/view?usp=sharing"><img src="https://github.com/itexpert2572000/Ctracker/blob/91a6a09e646eda69264b6611faa5278e0f03e1ab/readme_assets/download.png" alt="Download on the App Store" height="48"></a>
 </p>
 
 <!--## Total Visitors
