@@ -79,16 +79,16 @@ Technologies which we are used in this project are:
 ### Demo video of Project
 <a name="Librariesused"></a>
 ## Libraries used
-- <a href="https://apps.apple.com/us/app/gittouch/id1452042346">Flutter_svg</a>
-- Firebase_core
-- Firebase_auth
-- Firebase_database
-- Fluttertoast
-- Pretty_qr_code
-- QR_code_scanner
-- Image_picker
-- File_picker
-- Lottie
+- <a href="">Flutter_svg</a>
+- <a href="">Firebase_core</a>
+- <a href="">Firebase_auth</a>
+- <a href="">Firebase_database</a>
+- <a href="">Fluttertoast</a>
+- <a href="">Pretty_qr_code</a>
+- <a href="">QR_code_scanner</a>
+- <a href="">Image_picker</a>
+- <a href="">File_picker</a>
+- <a href="">Lottie</a>
 <a name="configure"></a>
 ## How to configure
 <a name="run"></a>
