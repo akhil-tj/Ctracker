@@ -5,7 +5,7 @@
 # CTracker
 ## Introduction         
 
-<img align="right" src="https://github.com/itexpert2572000/Ctracker/blob/18ec631682c854eedcb632bfe7977d66ba01daa6/readme_assets/miageimage2.png" />
+<img align="right" src="https://github.com/itexpert2572000/Ctracker/blob/946124dbb31f803dac79ca48c86f9700c5cec83c/readme_assets/introimage.png" />
 
 
 
