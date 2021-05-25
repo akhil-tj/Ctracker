@@ -79,6 +79,7 @@ Technologies which we are used in this project are:
 
 <a name="video"></a>
 ### Demo video of Project
+[![video thumbnail](https://github.com/itexpert2572000/Ctracker/blob/main/readme_assets/new%20thumbnail.jpg)](https://youtu.be/fcrjcRQzlWc)
 <a name="Librariesused"></a>
 ## Libraries used
 - <a href="https://pub.dev/packages/flutter_svg">Flutter_svg</a>
