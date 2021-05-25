@@ -79,16 +79,16 @@ Technologies which we are used in this project are:
 ### Demo video of Project
 <a name="Librariesused"></a>
 ## Libraries used
-- <a href="">Flutter_svg</a>
-- <a href="">Firebase_core</a>
-- <a href="">Firebase_auth</a>
-- <a href="">Firebase_database</a>
-- <a href="">Fluttertoast</a>
-- <a href="">Pretty_qr_code</a>
-- <a href="">QR_code_scanner</a>
-- <a href="">Image_picker</a>
-- <a href="">File_picker</a>
-- <a href="">Lottie</a>
+- <a href="https://pub.dev/packages/flutter_svg">Flutter_svg</a>
+- <a href="https://pub.dev/packages/firebase_core">Firebase_core</a>
+- <a href="https://pub.dev/packages/firebase_auth">Firebase_auth</a>
+- <a href="https://pub.dev/packages/firebase_database">Firebase_database</a>
+- <a href="https://pub.dev/packages/fluttertoast">Fluttertoast</a>
+- <a href="https://pub.dev/packages/pretty_qr_code">Pretty_qr_code</a>
+- <a href="https://pub.dev/packages/qr_code_scanner">QR_code_scanner</a>
+- <a href="https://pub.dev/packages/image_picker">Image_picker</a>
+- <a href="https://pub.dev/packages/file_picker">File_picker</a>
+- <a href="https://pub.dev/packages/lottie">Lottie</a>
 <a name="configure"></a>
 ## How to configure
 <a name="run"></a>
