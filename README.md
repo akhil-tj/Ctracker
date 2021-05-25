@@ -1,9 +1,6 @@
 ![alt text](https://trello-attachments.s3.amazonaws.com/542e9c6316504d5797afbfb9/542e9c6316504d5797afbfc1/39dee8d993841943b5723510ce663233/Frame_19.png)
 ![alt text](https://github.com/sreemikil/testing/blob/4e1a10f23ffedd4a3e88e3fd9ceb724ff2e0c82d/Image%20assets/imageban.jpg)
-<p align="center">
-  Download the app now <br><br>
-  <a href="https://apps.apple.com/us/app/gittouch/id1452042346"><img src="https://github.com/sreemikil/testing/blob/aacb684613a7a405df32608837624056e92aaa65/Image%20assets/download.png" alt="Download on the App Store" height="48"></a>
-</p>
+
 
 # CTracker
 ## Introduction         
@@ -104,6 +101,11 @@ From the command line:
  * Connect your Android device to your computer with a USB cable.
  * Enter cd [project].
  * Run flutter install.
+
+<p align="center">
+  Download the app now <br><br>
+  <a href="https://apps.apple.com/us/app/gittouch/id1452042346"><img src="https://github.com/sreemikil/testing/blob/aacb684613a7a405df32608837624056e92aaa65/Image%20assets/download.png" alt="Download on the App Store" height="48"></a>
+</p>
 
 <!--## Total Visitors
 
