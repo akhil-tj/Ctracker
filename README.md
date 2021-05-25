@@ -53,7 +53,7 @@ exact solutions.
 * **BFH/recPQYnRXAhew7MhQ/2021.**
 <a name="Linktoproductwalkthrough"></a>
 ## Link to product walkthrough
-* Video link
+[![video thumbnail](https://github.com/itexpert2572000/Ctracker/blob/main/readme_assets/new%20thumbnail.jpg)](https://youtu.be/fcrjcRQzlWc)
 <!--
 Technologies which we are used in this project are:
 - [Flutter](https://flutter.dev/)
@@ -78,8 +78,7 @@ Technologies which we are used in this project are:
 - Also he is able to see daily visitors details and summary.
 
 <a name="video"></a>
-### Demo video of Project
-[![video thumbnail](https://github.com/itexpert2572000/Ctracker/blob/main/readme_assets/new%20thumbnail.jpg)](https://youtu.be/fcrjcRQzlWc)
+
 <a name="Librariesused"></a>
 ## Libraries used
 - <a href="https://pub.dev/packages/flutter_svg">Flutter_svg</a>
