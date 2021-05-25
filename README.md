@@ -79,7 +79,7 @@ Technologies which we are used in this project are:
 ### Demo video of Project
 <a name="Librariesused"></a>
 ## Libraries used
-- Flutter_svg
+- <a href="https://apps.apple.com/us/app/gittouch/id1452042346">Flutter_svg</a>
 - Firebase_core
 - Firebase_auth
 - Firebase_database
