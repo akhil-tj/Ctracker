@@ -35,6 +35,7 @@ exact solutions.
 * [Libraries used](#Librariesused)
 * [How to configure](#configure)
 * [How to run](#run)
+* [Design file](#design)
 * [Download now](#download)
 
 <a name="members"></a>
@@ -49,7 +50,7 @@ exact solutions.
 
 <a name="id"></a>
 ## Team Id
-* Team ID: BFH/recPQYnRXAhew7MhQ/2021.
+* **BFH/recPQYnRXAhew7MhQ/2021.**
 <a name="Linktoproductwalkthrough"></a>
 ## Link to product walkthrough
 * Video link
@@ -101,6 +102,9 @@ From the command line:
  * Connect your Android device to your computer with a USB cable.
  * Enter cd [project].
  * Run flutter install.
+<a name="design"></a>
+## Design file
+<a href="https://www.figma.com/file/5capyUZOnGpKiwROaBuoRF/bfh-Ctracker?node-id=0%3A1"><img src="https://github.com/sreemikil/testing/blob/ad5f04bfa574ade3ba58ea506badfcc568951855/Image%20assets/designban.png"></a>
 <br><br>
 <a name="download"></a>
 <p align="center">
@@ -111,3 +115,6 @@ From the command line:
 <!--## Total Visitors
 
 <img align="left" src = "https://profile-counter.glitch.me/flutter_ecommerce_app/count.svg" alt ="Loading"> ->
+
+
+
