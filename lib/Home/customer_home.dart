@@ -103,7 +103,7 @@ class _CustomerHomeState extends State<CustomerHome> {
         future: userProfile(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
-            return CircularProgressIndicator();
+            // return CircularProgressIndicator();
           }
           return Scaffold(
             floatingActionButton: FloatingActionButton(

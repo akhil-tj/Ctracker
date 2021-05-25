@@ -33,10 +33,9 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
             flex: 1,
             child: Center(
               child: (result != null)
-                  ? ({
-                      {merchantProfile(result.code)},
-                      Navigator.pushNamed(context, 'customer_home_screen')
-                    })
+                  ? displayToastMessage(
+                      "Code is Not ${merchantProfile(result.code)} Go Back",
+                      context)
                   : displayToastMessage("Scan QR Code", context),
             ),
           ),
@@ -60,7 +59,7 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
     super.dispose();
   }
 
-  void merchantProfile(context) {
+  String merchantProfile(context) {
     FirebaseAuth auth = FirebaseAuth.instance;
     final User user = auth.currentUser;
     final uid = user.uid;
