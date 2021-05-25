@@ -13,10 +13,8 @@ C-tracker is an android app that let's shopowners to collect footprints of their
 
 C-tracker was fully developed in flutter, an open-source UI software development kit created by Google. It is used to develop cross platform applications for Android, iOS, Linux, Mac, Windows, Google Fuchsia, and the web from a single codebase.
 
+At the end of the day prevention is better than cure. Follow covid protocols with C-tracker.
 
-Chat, video, and audio-calling have become the new norm in the post-COVID era,
-and we're bridging the gap between businesses and customers by delivering those
-exact solutions.
 ## Table of contents
 * [Team members](#members)
 * [Team Id](#id)
