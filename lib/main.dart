@@ -13,10 +13,14 @@ import 'package:ctracker/style/text_style.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
 int finalValue;
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
@@ -68,13 +72,15 @@ class _HomeState extends State<Home> {
   }
 
   Widget buildPageIndicator(bool isCurrentPage) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 2.5),
-      height: isCurrentPage ? 8.0 : 6.0,
-      width: isCurrentPage ? 8.0 : 6.0,
-      decoration: BoxDecoration(
-        color: isCurrentPage ? vilot : greyShade,
-        borderRadius: BorderRadius.circular(12),
+    return SingleChildScrollView(
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 2.5),
+        height: isCurrentPage ? 8.0 : 6.0,
+        width: isCurrentPage ? 8.0 : 6.0,
+        decoration: BoxDecoration(
+          color: isCurrentPage ? vilot : greyShade,
+          borderRadius: BorderRadius.circular(12),
+        ),
       ),
     );
   }
