@@ -32,7 +32,7 @@ At the end of the day prevention is better than cure. Follow covid protocols wit
 ## Team members
 ![Akhil](https://github.com/itexpert2572000/Ctracker/blob/91a6a09e646eda69264b6611faa5278e0f03e1ab/readme_assets/tj.png) | ![Suvarnesh K M](https://github.com/itexpert2572000/Ctracker/blob/91a6a09e646eda69264b6611faa5278e0f03e1ab/readme_assets/suvarneshkm.png) | ![Sreemikil T Manoharan](https://github.com/itexpert2572000/Ctracker/blob/91a6a09e646eda69264b6611faa5278e0f03e1ab/readme_assets/sreemikil.png)
 ------------ | ------------- | ------------- 
-[@itexpert2572000](https://github.com/itexpert2572000) | [@Suvarnesh K M](https://github.com/SuvarneshKM) | [@Sreemikil T Manoharan](https://github.com/sreemikil)
+[@akhil-tj](https://github.com/akhil-tj) | [@Suvarnesh K M](https://github.com/SuvarneshKM) | [@Sreemikil T Manoharan](https://github.com/sreemikil)
 
 
 
